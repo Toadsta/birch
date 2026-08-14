@@ -1,32 +1,57 @@
-# vtaylor.dev
-![license](https://img.shields.io/github/license/Toadsta/vtaylor.dev) ![Code size](https://img.shields.io/github/languages/code-size/Toadsta/vtaylor.dev)
+<img src="public/images/apple-touch-icon.png" width="80">
 
-vtaylor.dev is my personal website that I mainly made to just learn
-some more web programming skills. The website is a general about me
-site with links to my socials, a projects page, and a blog.
+# Birch
+![license](https://img.shields.io/github/license/Toadsta/birch) ![Code size](https://img.shields.io/github/languages/code-size/Toadsta/birch)
 
-VicOS, the Windows 95-style desktop pastiche that used to live here, has moved to
-its own repo: [Toadsta/VicOS](https://github.com/Toadsta/VicOS).
+A minimalist, responsive static-site template inspired by terminal ricing aesthetics.
 
-## Features and Technologies Used
+Birch renders an about page, a blog, and a projects page from markdown content to plain HTML — no server, no client framework, just Node at build time and GitHub Pages after.
 
-- **Node.js + Express**: server for local development, serving the EJS templates and static assets.
-- **EJS**: templating so I can embed page fragments into a shared base layout. Similar to Flask/Jinja.
-- **Markdown content**: the about page, blog posts, and projects all live as markdown files with frontmatter under `content/`, parsed with `gray-matter` and `marked`. Adding a new post or project is just adding a file — no route or template changes needed.
-- **Static export + GitHub Pages**: the live site isn't the Express server — `npm run build` pre-renders every route to plain HTML in `dist/`, and a GitHub Actions workflow deploys that to GitHub Pages on every push to `main`.
-- **Light/dark theme**: follows system preference by default, with a manual toggle in the footer.
+It started as the source for [vtaylor.dev](https://vtaylor.dev), then got stripped down into a reusable template anyone can fork and re-skin.
 
-## Project Structure
+**[Live demo →](https://toadsta.github.io/birch/)**
 
-Here's the structure of the project:
+<img src=".github/preview.png" width="640" alt="The about page, showing the placeholder photo, bio, and pinned blog post / project cards">
+
+## Recommended Setup
+
+1. Fork this repository.
+2. Enable Actions: forks have GitHub Actions disabled by default. Go to the **Actions** tab and click "I understand my workflows, go ahead and enable them."
+3. Enable Pages: go to Settings → Pages and set the source to **GitHub Actions**. This is a repo setting, not a file, so it never carries over from a fork.
+4. Edit `content/settings.md` with your name, socials, and bio — that's the only file you need to touch to make this yours.
+5. Push to `main`. The "Deploy to GitHub Pages" workflow builds and deploys automatically from here on.
+
+Want to preview or edit locally before pushing? See Local Development below.
+
+## Local Development
+
+1. Clone this repository.
+2. Install dependencies:
+```npm install```
+3. Build the static site:
+```npm run build```
+This renders everything into `dist/` — the same output GitHub Pages deploys. Open `dist/index.html` directly, or serve it with `npx serve dist` for working relative links.
+
+## Making it yours
+
+- **Settings**: `content/settings.md` is the single place for everything — name, nav tagline, photo, socials, custom domain, and your bio (the markdown body below the frontmatter). Every page reads it; comments explain each field.
+- **Content**: `content/blog/` and `content/projects/` hold your posts and projects — see "Adding a blog post or project" below.
+- **Favicon**: `public/images/favicon-*.png` and `apple-touch-icon*.png` are a generic `>_` mark — swap them for your own if you want.
+
+## Adding a blog post or project
+
+Drop a markdown file with frontmatter into `content/blog/` or `content/projects/` — the filename (minus `.md`) becomes the URL slug. `content/blog/example-post.md` and `content/projects/example-project.md` are live examples with every frontmatter field explained inline — copy one and rename it, or edit it into your first real post/project.
+
+<details>
+<summary>Project Structure</summary>
+
 ```
-├── app.js                  # Express dev server
 ├── build.js                 # static export to dist/ for GitHub Pages
 ├── lib
 │   ├── content.js           # loads markdown content (gray-matter + marked)
 │   └── errors.js
 ├── content
-│   ├── about.md
+│   ├── settings.md
 │   ├── blog
 │   └── projects
 ├── views
@@ -44,31 +69,12 @@ Here's the structure of the project:
     └── javascript
 ```
 
-## Getting Started
-
-To run this website locally, follow these steps:
-
-1. Clone this repository to your local machine.
-2. Install the necessary dependencies by running the following command in the project directory:
-```npm install```
-3. Start the Node.js dev server by running the following command:
-```node app.js```
-4. Open your web browser and visit http://localhost:3000 or visit https://vtaylor.dev to visit my website!
-
-To build the static site the same way production does:
-```npm run build```
-This pre-renders everything into `dist/`, which is what actually gets deployed.
-
-## Adding a blog post or project
-
-Drop a markdown file with frontmatter into `content/blog/` or `content/projects/` — the filename (minus `.md`) becomes the URL slug. `content/blog-example.md` and `content/project-example.md` are reference templates with all the available frontmatter fields explained; copy one in rather than starting from scratch.
+</details>
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+MIT — see [LICENSE](LICENSE.md).
 
 ## Acknowledgments
 
-The contents of the repository was made by me (Victoria Taylor):
-1. The theme of the main webpage is inspired by [Risotto](https://github.com/joeroe/risotto) for Hugo
-2. Error pages use cat images from [http.cat](https://http.cat)
+Originally built by Victoria Taylor ([@Toadsta](https://github.com/Toadsta)) as the personal site vtaylor.dev, then extracted into this template. The theme is inspired by [Risotto](https://github.com/joeroe/risotto) for Hugo, and error pages use cat images from [http.cat](https://http.cat).
