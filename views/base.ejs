@@ -12,6 +12,54 @@
     <link rel="stylesheet" href="<%= basePath %>/css/torium-misc.css?v=<%= assetVersion %>">
     <link rel="stylesheet" href="<%= basePath %>/css/torium-content.css?v=<%= assetVersion %>">
     <link rel="stylesheet" href="<%= basePath %>/css/torium-about.css?v=<%= assetVersion %>">
+    <style>
+        :root {
+            --color-bg: <%= theme.light.bg %>;
+            --color-panel-bg: <%= theme.light.panelBg %>;
+            --color-text: <%= theme.light.text %>;
+            --color-text-muted: <%= theme.light.textMuted %>;
+            --color-badge-bg: <%= theme.light.badgeBg %>;
+            --color-badge-text: <%= theme.light.badgeText %>;
+            --color-accent: <%= theme.light.accent %>;
+            --color-footer-link: <%= theme.light.footerLink %>;
+            color-scheme: light;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-bg: <%= theme.dark.bg %>;
+                --color-panel-bg: <%= theme.dark.panelBg %>;
+                --color-text: <%= theme.dark.text %>;
+                --color-text-muted: <%= theme.dark.textMuted %>;
+                --color-badge-bg: <%= theme.dark.badgeBg %>;
+                --color-badge-text: <%= theme.dark.badgeText %>;
+                --color-accent: <%= theme.dark.accent %>;
+                --color-footer-link: <%= theme.dark.footerLink %>;
+                color-scheme: dark;
+            }
+        }
+        :root[data-theme="light"] {
+            --color-bg: <%= theme.light.bg %>;
+            --color-panel-bg: <%= theme.light.panelBg %>;
+            --color-text: <%= theme.light.text %>;
+            --color-text-muted: <%= theme.light.textMuted %>;
+            --color-badge-bg: <%= theme.light.badgeBg %>;
+            --color-badge-text: <%= theme.light.badgeText %>;
+            --color-accent: <%= theme.light.accent %>;
+            --color-footer-link: <%= theme.light.footerLink %>;
+            color-scheme: light;
+        }
+        :root[data-theme="dark"] {
+            --color-bg: <%= theme.dark.bg %>;
+            --color-panel-bg: <%= theme.dark.panelBg %>;
+            --color-text: <%= theme.dark.text %>;
+            --color-text-muted: <%= theme.dark.textMuted %>;
+            --color-badge-bg: <%= theme.dark.badgeBg %>;
+            --color-badge-text: <%= theme.dark.badgeText %>;
+            --color-accent: <%= theme.dark.accent %>;
+            --color-footer-link: <%= theme.dark.footerLink %>;
+            color-scheme: dark;
+        }
+    </style>
 </head>
 
 <body>

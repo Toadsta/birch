@@ -10,6 +10,8 @@ linkedin: "https://www.linkedin.com/in/yourusername/"
 email: "you@example.com"
 # Optional custom domain for GitHub Pages (writes a CNAME file on build). Leave blank to use the default *.github.io URL.
 domain: ""
+# Color theme, applied to both light and dark mode. One of: birch, nord, umber, catppuccin, rosepine, everforest. See THEMES.md for previews.
+theme: "birch"
 ---
 Write your bio here — plain markdown, rendered with `marked`. This is the main text that appears next to your photo on the about page.
 
